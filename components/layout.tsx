@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { ReactNode, useEffect, useState } from 'react';
+import Head from './head';
 
 type Props = {
 	children: ReactNode;
@@ -45,7 +46,7 @@ const Layout = ({ children }: Props) => {
 		handleExternalLinks();
 	}, [hash, isLoading]);
 
-	return <>{/* <Head /> */}</>;
+	return <><Head /></>;
 };
 
 export default Layout;
