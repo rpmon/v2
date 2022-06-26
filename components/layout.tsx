@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import { ReactNode, useEffect, useState } from 'react';
-import Head from './head';
-
+import { CustomHead, Nav, Loader, Social, Email, Footer } from './';
 type Props = {
 	children: ReactNode;
 };
@@ -46,7 +45,27 @@ const Layout = ({ children }: Props) => {
 		handleExternalLinks();
 	}, [hash, isLoading]);
 
-	return <><Head /></>;
+	return (
+		<>
+			<CustomHead />
+			<div className="root">
+				{isLoading && isHome ? (
+					<Loader finishLoading={() => setIsLoading(false)} />
+				) : (
+					<div>
+						{/* <Nav isHome={isHome} /> */}
+						{/* <Social isHome={isHome} />
+              <Email isHome={isHome} /> */}
+
+						<div id="content">
+							{children}
+							<Footer />
+						</div>
+					</div>
+				)}
+			</div>
+		</>
+	);
 };
 
 export default Layout;

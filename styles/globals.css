@@ -65,6 +65,11 @@ body {
 	}
 }
 
+.dark body {
+	background-color: theme('colors.black');
+	color: theme('colors.slate');
+}
+
 body.hidden {
 	overflow: hidden;
 }
@@ -142,6 +147,15 @@ h6 {
 	line-height: 1.1;
 }
 
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+	color: theme('colors.cyan');
+}
+
 .big-heading {
 	margin: 0;
 	font-size: clamp(40px, 8vw, 80px);
@@ -196,6 +210,9 @@ h6 {
 		margin-left: 10px;
 	}
 }
+.dark .numbered-heading::after {
+	background-color: theme('colors.aqua');
+}
 
 a:hover,
 a:focus {
@@ -210,4 +227,8 @@ hr {
 	border-color: initial;
 	border-image: initial;
 	margin: 1rem;
+}
+
+.dark hr {
+	background-color: theme('colors.aqua');
 }

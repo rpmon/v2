@@ -4,6 +4,7 @@ module.exports = {
 		'./pages/**/*.{js,ts,jsx,tsx}',
 		'./components/**/*.{js,ts,jsx,tsx}',
 	],
+	darkMode: 'class',
 	theme: {
 		fontFamily: {
 			sans: ['Heebo', 'sans-serif'],
@@ -18,6 +19,7 @@ module.exports = {
 			xl: '1.25rem',
 			xxl: '1.375rem',
 			heading: '2rem',
+			typography: 'clamp(1rem, 3vw + 1rem, 4rem)',
 		},
 		colors: {
 			white: '#f7fbfc',
@@ -31,6 +33,21 @@ module.exports = {
 			slate: '#323232',
 			aqua: '#0d7377',
 			cyan: '#14ffec',
+		},
+		extend: {
+			animation: {
+				'loader-before': 'typewriter 1.5s steps(24) 1s forwards',
+				'loader-after':
+					'typewriter 1.5s steps(24) 1s forwards, blink 750ms steps(24) infinite',
+			},
+			keyframes: {
+				typewriter: {
+					'100%': { left: '100%' },
+				},
+				blink: {
+					'100%': { background: 'transparent' },
+				},
+			},
 		},
 	},
 	plugins: [],

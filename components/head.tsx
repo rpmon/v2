@@ -38,4 +38,4 @@ const CustomHead = () => {
 	);
 };
 
-export default Head;
+export default CustomHead;
