@@ -8,14 +8,18 @@ const Loader = ({ finishLoading }: loaderProps) => {
 		const afterTyped = setTimeout(() => {
 			//Add class animate-fadeIn to subtitle h2 element.
 			document.getElementById('subtitle')?.classList.remove('opacity-0');
-		}, 3000);
+		}, 4000);
+		const afterLoaded = setTimeout(() => {
+			finishLoading();
+		}, 7000);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	return (
 		<div className="m-0 font-mono min-h-screen grid place-content-center text-center">
 			<h1
 				className="text-typography relative w-max before:absolute before:inset-0 after:absolute after:inset-0
 			before:bg-white before:dark:bg-black before:animate-loader-before
-			after:w-[0.125em] after:bg-black after:dark:bg-white after:animate-loader-after
+			after:w-[0.125em] after:bg-slate after:dark:bg-white after:animate-loader-after
 			"
 			>
 				My name is Rohit Prakash.

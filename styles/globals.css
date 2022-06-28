@@ -4,6 +4,8 @@
 @tailwind variants;
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap');
 
+:root {
+}
 html {
 	box-sizing: border-box;
 	width: 100%;
@@ -231,4 +233,12 @@ hr {
 
 .dark hr {
 	background-color: theme('colors.aqua');
+}
+
+.navlinks::before {
+	content: '0' counter(item) '.';
+	margin-right: 5px;
+	color: theme('colors.purple');
+	font-size: theme('fontSize.sm');
+	text-align: right;
 }

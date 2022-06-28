@@ -36,9 +36,9 @@ module.exports = {
 		},
 		extend: {
 			animation: {
-				'loader-before': 'typewriter 1.5s steps(24) 1s forwards',
+				'loader-before': 'typewriter 2s steps(24) 1s forwards',
 				'loader-after':
-					'typewriter 1.5s steps(24) 1s forwards, blink 750ms steps(24) infinite',
+					'typewriter 2s steps(24) 1s forwards, blink 750ms steps(24) infinite',
 			},
 			keyframes: {
 				typewriter: {

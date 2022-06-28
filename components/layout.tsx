@@ -53,7 +53,7 @@ const Layout = ({ children }: Props) => {
 					<Loader finishLoading={() => setIsLoading(false)} />
 				) : (
 					<div>
-						{/* <Nav isHome={isHome} /> */}
+						<Nav isHome={isHome} />
 						{/* <Social isHome={isHome} />
               <Email isHome={isHome} /> */}
 
