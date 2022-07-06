@@ -6,6 +6,13 @@ module.exports = {
 	],
 	darkMode: 'class',
 	theme: {
+		screens: {
+			sm: { max: '640px' },
+			md: { max: '768px' },
+			lg: { max: '1024px' },
+			xl: { max: '1280px' },
+			'2xl': { max: '1536px' },
+		},
 		fontFamily: {
 			sans: ['Heebo', 'sans-serif'],
 			mono: ['Inconsolata', 'monospace'],
@@ -28,11 +35,13 @@ module.exports = {
 			sky: '#b9d7ea',
 			blue: '#769fcd',
 			purple: '#9f7aea',
+			darksky: '#5ea0eb',
 			green: '#64ffda',
 			black: '#212121',
 			slate: '#323232',
 			aqua: '#0d7377',
 			cyan: '#14ffec',
+			darkblue: '#00008B',
 		},
 		extend: {
 			animation: {

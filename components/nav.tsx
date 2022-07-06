@@ -1,8 +1,10 @@
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { config } from '../config';
 import { useHeaderContext } from '../hooks';
 import IconLogo from './logo';
+import Menu from './menu';
 
 type NavProps = {
 	isHome: boolean;
@@ -10,7 +12,18 @@ type NavProps = {
 
 const Nav = ({ isHome }: NavProps) => {
 	const [isMounted, setIsMounted] = useState(!isHome);
+
 	const { isVisible } = useHeaderContext();
+
+	useEffect(() => {
+		const mountTimeout = setTimeout(() => {
+			setIsMounted(true);
+		}, 500);
+
+		return () => {
+			clearTimeout(mountTimeout);
+		};
+	}, []);
 
 	const Logo = (
 		<div className="logo flex justify-center items-center" tabIndex={-1}>
@@ -58,21 +71,60 @@ const Nav = ({ isHome }: NavProps) => {
 						counterReset: 'item 0',
 					}}
 				>
-					{Logo}
+					<motion.div
+						initial={{ opacity: 0, y: -20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ ease: 'easeIn', duration: 1, delay: 0.1 }}
+					>
+						{isMounted && <>{Logo}</>}
+					</motion.div>
 					<div className="flex items-center max-w-md:hidden">
-						<ol className="flex justify-between items-center p-0 m-0 list-none">
-							{config.navLinks &&
-								config.navLinks.map(({ url, name }, index) => (
-									<li key={index} style={{ counterIncrement: 'item 1' }}>
-										<Link href={url}>
-											<a className="navlinks text-blue w-[42px] h-[42px] p-[10px]">
-												{name}
-											</a>
-										</Link>
-									</li>
-								))}
+						<ol>
+							<div className="flex justify-between items-center p-0 m-0 list-none md:hidden">
+								{isMounted &&
+									config.navLinks &&
+									config.navLinks.map(({ url, name }, index) => (
+										<motion.li
+											initial={{ opacity: 0, y: -20 }}
+											animate={{ opacity: 1, y: 0 }}
+											transition={{
+												ease: 'easeIn',
+												duration: 1,
+												delay: index * 0.2,
+											}}
+											key={index}
+											style={{
+												counterIncrement: 'item 1',
+											}}
+										>
+											<Link href={url}>
+												<a className="navlinks text-darkblue w-[42px] h-[42px] p-[10px]">
+													{name}
+												</a>
+											</Link>
+										</motion.li>
+									))}
+							</div>
 						</ol>
-						<div>{ResumeLink}</div>
+						<motion.div
+							initial={{ opacity: 0, y: -20 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ ease: 'easeIn', duration: 1, delay: 0.1 }}
+						>
+							{isMounted && (
+								<div
+									className="md:hidden"
+									style={{
+										transitionDelay: `${
+											isHome ? config.navLinks.length * 100 : 0
+										}ms`,
+									}}
+								>
+									{ResumeLink}
+								</div>
+							)}
+						</motion.div>
+						{isMounted && <Menu />}
 					</div>
 				</nav>
 			</header>

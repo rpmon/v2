@@ -6,6 +6,7 @@ export const config = {
 	defaultImage: '/og.png',
 	twitterUsername: '@rohitp934',
 	email: 'rohitp934@gmail.com',
+	loaderDelay: 2000,
 	socialMedia: [
 		{
 			name: 'Github',
