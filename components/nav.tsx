@@ -58,7 +58,7 @@ const Nav = ({ isHome }: NavProps) => {
 	return (
 		<>
 			<header
-				className="flex justify-between items-center fixed top-0 z-[11] py-0 px-[50px] w-full h-[100px] bg-sky filter-none pointer-events-auto select-auto backdrop-blur-[10px] transition-[var(--transition)] lg:py-[40px] md:py-[25px]"
+				className="flex justify-between items-center fixed top-0 z-[11] py-0 px-[50px] w-full h-[100px] bg-white filter-none pointer-events-auto select-auto backdrop-blur-[10px] transition-[var(--transition)] lg:py-[40px] md:py-[25px]"
 				style={{
 					height: '70px',
 					transform: isVisible ? 'translateY(0)' : 'translateY(-70px)',

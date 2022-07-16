@@ -9,7 +9,7 @@ export const config = {
 	loaderDelay: 2000,
 	socialMedia: [
 		{
-			name: 'Github',
+			name: 'GitHub',
 			url: 'https://github.com/rohitp934',
 		},
 		{

@@ -54,8 +54,8 @@ const Layout = ({ children }: Props) => {
 				) : (
 					<div>
 						<Nav isHome={isHome} />
-						{/* <Social isHome={isHome} />
-              <Email isHome={isHome} /> */}
+						<Social isHome={isHome} />
+						<Email isHome={isHome} />
 
 						<div id="content">
 							{children}

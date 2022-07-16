@@ -12,7 +12,7 @@ const IconLogo = () => {
 			>
 				<g
 					transform="translate(0.000000,444.000000) scale(0.100000,-0.100000)"
-					className="fill-white dark:fill-black"
+					className="fill-black dark:fill-white"
 					stroke="none"
 				>
 					<path

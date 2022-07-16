@@ -115,7 +115,7 @@ const Menu = () => {
 					<div
 						className={`${styles['styled-sidebar']} ${
 							menuOpen ? styles['sidebar-menu-open'] : ''
-						} bg-blue`}
+						} bg-grey`}
 						aria-hidden={!menuOpen}
 						tabIndex={menuOpen ? 1 : -1}
 					>
@@ -124,8 +124,11 @@ const Menu = () => {
 								<ol>
 									{config.navLinks.map(({ name, url }, index) => (
 										<li key={index}>
-											<Link href={url} onClick={() => setMenuOpen(false)}>
-												<a className="text-darkblue w-[42px] h-[42px] p-[10px]">
+											<Link href={url}>
+												<a
+													onClick={() => setMenuOpen(false)}
+													className="text-darkblue w-[42px] h-[42px] p-[10px]"
+												>
 													{name}
 												</a>
 											</Link>
