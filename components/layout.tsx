@@ -53,6 +53,9 @@ const Layout = ({ children }: Props) => {
 					<Loader finishLoading={() => setIsLoading(false)} />
 				) : (
 					<div>
+						{
+							//Todo: Add Darkmode toggle in SideMenu
+						}
 						<Nav isHome={isHome} />
 						<Social isHome={isHome} />
 						<Email isHome={isHome} />

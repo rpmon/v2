@@ -107,7 +107,7 @@ const Nav = ({ isHome }: NavProps) => {
 											}}
 										>
 											<Link href={url}>
-												<a className="navlinks text-darkblue dark:text-purple w-[42px] h-[42px] p-[10px]">
+												<a className="navlinks text-darkblue dark:text-purple dark:hover:text-green w-[42px] transition-all h-[42px] p-[10px]">
 													{name}
 												</a>
 											</Link>
