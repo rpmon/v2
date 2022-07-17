@@ -48,7 +48,7 @@ const Layout = ({ children }: Props) => {
 	return (
 		<>
 			<CustomHead />
-			<div className="root">
+			<div className="root bg-white dark:bg-black">
 				{isLoading && isHome ? (
 					<Loader finishLoading={() => setIsLoading(false)} />
 				) : (

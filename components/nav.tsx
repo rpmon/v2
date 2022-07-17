@@ -5,6 +5,9 @@ import { config } from '../config';
 import { useHeaderContext } from '../hooks';
 import IconLogo from './logo';
 import Menu from './menu';
+import useDarkMode from 'use-dark-mode';
+import IconMoon from './icons/moon';
+import IconSun from './icons/sun';
 
 type NavProps = {
 	isHome: boolean;
@@ -14,6 +17,13 @@ const Nav = ({ isHome }: NavProps) => {
 	const [isMounted, setIsMounted] = useState(!isHome);
 
 	const { isVisible } = useHeaderContext();
+
+	const darkMode = useDarkMode(true, {
+		classNameDark: 'dark',
+		classNameLight: 'light',
+	});
+
+	const darkModeBall = document.getElementById('darkmode-ball');
 
 	useEffect(() => {
 		const mountTimeout = setTimeout(() => {
@@ -58,11 +68,10 @@ const Nav = ({ isHome }: NavProps) => {
 	return (
 		<>
 			<header
-				className="flex justify-between items-center fixed top-0 z-[11] py-0 px-[50px] w-full h-[100px] bg-white filter-none pointer-events-auto select-auto backdrop-blur-[10px] transition-[var(--transition)] lg:py-[40px] md:py-[25px]"
+				className="flex justify-between items-center fixed top-0 z-[11] py-0 px-[50px] w-full h-[100px] bg-white dark:bg-black filter-none pointer-events-auto select-auto transition-[var(--transition)] lg:py-[40px] md:py-[25px]"
 				style={{
 					height: '70px',
 					transform: isVisible ? 'translateY(0)' : 'translateY(-70px)',
-					boxShadow: '0 10px 30px -10px rgba(2, 12, 27, 0.7)',
 				}}
 			>
 				<nav
@@ -98,7 +107,7 @@ const Nav = ({ isHome }: NavProps) => {
 											}}
 										>
 											<Link href={url}>
-												<a className="navlinks text-darkblue w-[42px] h-[42px] p-[10px]">
+												<a className="navlinks text-darkblue dark:text-purple w-[42px] h-[42px] p-[10px]">
 													{name}
 												</a>
 											</Link>
@@ -110,18 +119,57 @@ const Nav = ({ isHome }: NavProps) => {
 							initial={{ opacity: 0, y: -20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ ease: 'easeIn', duration: 1, delay: 0.1 }}
+							className="flex"
 						>
 							{isMounted && (
-								<div
-									className="md:hidden"
-									style={{
-										transitionDelay: `${
-											isHome ? config.navLinks.length * 100 : 0
-										}ms`,
-									}}
-								>
-									{ResumeLink}
-								</div>
+								<>
+									<div
+										className="md:hidden mr-5"
+										style={{
+											transitionDelay: `${
+												isHome ? config.navLinks.length * 100 : 0
+											}ms`,
+										}}
+									>
+										{ResumeLink}
+									</div>
+									<div>
+										<input
+											onClick={() => {
+												darkMode.toggle();
+												!darkMode.value
+													? darkModeBall?.style.setProperty(
+															'transform',
+															'translateX(20px)'
+													  )
+													: darkModeBall?.style.removeProperty('transform');
+											}}
+											type="checkbox"
+											className="checkbox opacity-0 absolute"
+											id="checkbox"
+										/>
+										<label
+											htmlFor="checkbox"
+											className="label w-[40px] h-[20px] bg-gray-600 flex rounded-[50px] items-center justify-between  relative scale-150"
+										>
+											<i className="text-purple">
+												<IconMoon />
+											</i>
+											<i className="text-yellow">
+												<IconSun />
+											</i>
+											<div
+												id="darkmode-ball"
+												className="ball w-[18px] h-[18px] bg-white absolute top-[1px] left-[1px] rounded-[50%] transition-all"
+												style={
+													darkMode.value
+														? { transform: 'translateX(20px)' }
+														: {}
+												}
+											></div>
+										</label>
+									</div>
+								</>
 							)}
 						</motion.div>
 						{isMounted && <Menu />}

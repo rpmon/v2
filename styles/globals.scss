@@ -121,7 +121,7 @@ body {
 	}
 }
 
-.dark body {
+body.dark {
 	background-color: theme('colors.black');
 	color: theme('colors.slate');
 }
@@ -280,4 +280,8 @@ hr {
 	color: theme('colors.purple');
 	font-size: theme('fontSize.sm');
 	text-align: right;
+}
+
+.dark .navlinks::before {
+	color: theme('colors.green');
 }

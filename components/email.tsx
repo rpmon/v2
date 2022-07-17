@@ -12,11 +12,12 @@ const Email = ({ isHome }: EmailProps) => {
 				className="
 				flex flex-col items-center relative
 				after:block after:w-[1px] after:h-[90px] after:mx-auto after:my-0 after:bg-black
+				dark:after:bg-purple
 			"
 			>
 				<Link href={`mailto:${config.email}`}>
 					<a
-						className="text-black hover:text-purple my-5 mx-auto p-2.5 font-mono text-sm leading-loose tracking-widest hover:translate-y-[-3px] focus:translate-y-[-3px] transition-all"
+						className="text-black dark:text-purple hover:text-purple dark:hover:text-green my-5 mx-auto p-2.5 font-mono text-sm leading-loose tracking-widest hover:translate-y-[-3px] focus:translate-y-[-3px] transition-all"
 						style={{ writingMode: 'vertical-rl' }}
 					>
 						{config.email}

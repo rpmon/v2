@@ -14,11 +14,11 @@ const Social = ({ isHome }: SocialProps) => {
 		<Side isHome={isHome} orientation="left">
 			<ul
 				className={`
-				flex flex-col items-center m-0 p-0 list-none social ${styles['social']}`}
+				flex flex-col items-center m-0 p-0 list-none ${styles['social']} dark:after:bg-purple`}
 			>
 				{config.socialMedia &&
 					config.socialMedia.map(({ url, name }, index) => (
-						<li key={index} className="text-black">
+						<li key={index} className="text-black dark:text-purple">
 							<Link href={url} target="_blank" rel="noreferrer">
 								<a>
 									<Icon name={name} />

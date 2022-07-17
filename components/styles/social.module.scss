@@ -6,6 +6,9 @@
 		height: 90px;
 		margin: 0 auto;
 		background-color: var(--black);
+		body.dark & {
+			background-color: var(--purple);
+		}
 	}
 	li {
 		&:last-of-type {

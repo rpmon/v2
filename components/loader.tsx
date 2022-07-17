@@ -15,11 +15,11 @@ const Loader = ({ finishLoading }: loaderProps) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	return (
-		<div className="m-0 font-mono min-h-screen grid place-content-center text-center">
+		<div className="m-0 font-mono min-h-screen grid place-content-center text-center dark:bg-black">
 			<h1
 				className="text-typography relative w-max before:absolute before:inset-0 after:absolute after:inset-0
-			before:bg-white before:dark:bg-black before:animate-loader-before
-			after:w-[0.125em] after:bg-slate after:dark:bg-white after:animate-loader-after
+			before:bg-white dark:before:bg-black before:animate-loader-before
+			after:w-[0.125em] after:bg-slate dark:after:bg-white after:animate-loader-after
 			"
 			>
 				My name is Rohit Prakash.
