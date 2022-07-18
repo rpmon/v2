@@ -1,11 +1,19 @@
 import Link from 'next/link';
 import { MutableRefObject, useEffect, useRef, useState } from 'react';
+import useDarkMode from 'use-dark-mode';
 import { config } from '../config';
 import { useOnClickOutside } from '../hooks';
+import IconMoon from './icons/moon';
+import IconSun from './icons/sun';
 import styles from './styles/menu.module.scss';
 
 const Menu = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
+	const darkMode = useDarkMode(false, {
+		classNameDark: 'dark',
+		classNameLight: 'light',
+	});
+	const darkModeBall = useRef<HTMLDivElement>(null);
 
 	const toggleMenu = () => setMenuOpen(() => !menuOpen);
 
@@ -113,9 +121,11 @@ const Menu = () => {
 					</button>
 
 					<div
-						className={`${styles['styled-sidebar']} ${
+						className={`md:shadow-[-10px_0px_30px_-15px_purple] ${
+							styles['styled-sidebar']
+						} ${
 							menuOpen ? styles['sidebar-menu-open'] : ''
-						} bg-grey`}
+						} bg-grey dark:bg-slate dark:md:shadow-purple`}
 						aria-hidden={!menuOpen}
 						tabIndex={menuOpen ? 1 : -1}
 					>
@@ -127,7 +137,7 @@ const Menu = () => {
 											<Link href={url}>
 												<a
 													onClick={() => setMenuOpen(false)}
-													className="text-darkblue w-[42px] h-[42px] p-[10px]"
+													className="text-darkblue dark:text-purple dark:hover:text-green w-[42px] h-[42px] p-[10px]"
 												>
 													{name}
 												</a>
@@ -147,6 +157,42 @@ const Menu = () => {
 									Resume
 								</a>
 							</Link>
+
+							<div className="mt-10">
+								<input
+									onClick={() => {
+										darkMode.toggle();
+										!darkMode.value
+											? darkModeBall.current?.style.setProperty(
+													'transform',
+													'translateX(20px)'
+											  )
+											: darkModeBall.current?.style.removeProperty('transform');
+									}}
+									type="checkbox"
+									className="checkbox opacity-0 absolute"
+									id="checkbox"
+								/>
+								<label
+									htmlFor="checkbox"
+									className="label w-[40px] h-[20px] bg-gray-600 flex rounded-[50px] items-center justify-between  relative scale-150"
+								>
+									<i className="text-purple">
+										<IconMoon />
+									</i>
+									<i className="text-yellow">
+										<IconSun />
+									</i>
+									<div
+										id="darkmode-ball"
+										ref={darkModeBall}
+										className="ball w-[18px] h-[18px] bg-white absolute top-[1px] left-[1px] rounded-[50%] transition-all"
+										style={
+											darkMode.value ? { transform: 'translateX(20px)' } : {}
+										}
+									></div>
+								</label>
+							</div>
 						</nav>
 					</div>
 				</div>
