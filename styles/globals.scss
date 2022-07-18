@@ -59,7 +59,7 @@ html {
 }
 ::selection {
 	background-color: theme('colors.white');
-	color: theme('colors.blue');
+	color: theme('colors.lightblue');
 }
 :focus {
 	outline: 2px dashed theme('colors.sky');
@@ -184,7 +184,7 @@ h5,
 h6 {
 	margin: 0 0 10px 0;
 	font-weight: 600;
-	color: theme('colors.blue');
+	color: theme('colors.lightblue');
 	line-height: 1.1;
 }
 

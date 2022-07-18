@@ -1,4 +1,4 @@
-import Side from './side';
+import { Side } from './';
 import { config } from '../config';
 import Link from 'next/link';
 import Icon from './icons/icon';

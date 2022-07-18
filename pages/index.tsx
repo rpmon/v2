@@ -3,6 +3,7 @@ import Layout from '../components/layout';
 import { ScrollProvider } from '../context/scrollContext';
 import { HeaderProvider } from '../context/headerContext';
 import useDarkMode from 'use-dark-mode';
+import { Hero } from '../components';
 
 const Home: NextPage = () => {
 	const darkMode = useDarkMode(true, {
@@ -14,7 +15,13 @@ const Home: NextPage = () => {
 			<ScrollProvider>
 				<HeaderProvider>
 					<Layout>
-						<h3>Welcome to my website</h3>
+						<main
+							className="my-0 mx-auto w-full max-w-[1600px] min-h-screen py-0 px-[150px] 
+							lg:py-0 lg:px-[100px] md:py-0 md:px-[50px] sm:py-0 sm:px-[25px]
+						"
+						>
+							<Hero />
+						</main>
 					</Layout>
 				</HeaderProvider>
 			</ScrollProvider>
