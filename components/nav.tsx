@@ -133,7 +133,7 @@ const Nav = ({ isHome }: NavProps) => {
 									>
 										{ResumeLink}
 									</div>
-									<div>
+									<div className="md:hidden">
 										<input
 											onClick={() => {
 												darkMode.toggle();
