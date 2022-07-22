@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 const Hero = () => {
@@ -28,17 +29,18 @@ const Hero = () => {
 				I’m a software developer who designs and develops user-centric products
 				on the Web. Currently, I’m focused on building reliable, scalable
 				products at{' '}
-				<a
-					href="https://hiringtek.com/"
-					target="_blank"
-					rel="noreferrer"
-					className="text-purple dark:text-purple inline-block relative transition 
+				<Link href="https://hiringtek.com/">
+					<a
+						target="_blank"
+						rel="noreferrer"
+						className="text-purple dark:text-purple inline-block relative transition 
 						hover:after:w-full hover:after:text-purple focus:after:w-full focus:after:text-purple active:after:w-full active:after:text-purple
 						after:block after:w-0 after:h-[2px] after:relative after:bottom-[0.25em] after:transition-all after:opacity-50 after:bg-purple
 					"
-				>
-					Hiringtek Inc.
-				</a>
+					>
+						Hiringtek Inc.
+					</a>
+				</Link>
 			</p>
 		</>
 	);

@@ -218,13 +218,12 @@ h6 {
 
 .numbered-heading::before {
 	position: relative;
-	bottom: 4px;
 	counter-increment: section;
 	content: '0' counter(section) '.';
 	margin-right: 10px;
 	color: theme('colors.purple');
 	font-family: theme('fontFamily.mono');
-	font-size: clamp(theme('fontSize.md'), 3vw, theme('fontSize.xl'));
+	font-size: clamp(26px, 3vw, theme('fontSize.xl'));
 	font-weight: 400;
 	@media (max-width: 480px) {
 		margin-bottom: -3px;

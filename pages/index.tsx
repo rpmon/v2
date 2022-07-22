@@ -4,6 +4,7 @@ import { ScrollProvider } from '../context/scrollContext';
 import { HeaderProvider } from '../context/headerContext';
 import useDarkMode from 'use-dark-mode';
 import { Hero } from '../components';
+import About from '../components/sections/about';
 
 const Home: NextPage = () => {
 	const darkMode = useDarkMode(true, {
@@ -21,6 +22,7 @@ const Home: NextPage = () => {
 						"
 						>
 							<Hero />
+							<About />
 						</main>
 					</Layout>
 				</HeaderProvider>
