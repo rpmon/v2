@@ -25,7 +25,9 @@ const useScroll = (wait = 250) => {
 		const handleScroll = () => {
 			const scrollTop = getScrollPosition();
 			setCurrentScrollTop(scrollTop);
-			previousScrollTop.current = scrollTop;
+			setTimeout(() => {
+				previousScrollTop.current = scrollTop;
+			}, wait);
 		};
 
 		const handleDocumentScrollThrottled = throttle(handleScroll, wait);

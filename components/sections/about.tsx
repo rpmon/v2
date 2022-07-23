@@ -28,7 +28,7 @@ const About = () => {
 		'MongoDB',
 	];
 	return (
-		<section className="max-w-[900px]" ref={revealContainer}>
+		<section id="about" className="max-w-[900px]" ref={revealContainer}>
 			<h2 className="numbered-heading text-blue-500 dark:text-green">
 				About Me
 			</h2>

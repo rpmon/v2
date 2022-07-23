@@ -9,7 +9,6 @@ type SocialProps = {
 };
 
 const Social = ({ isHome }: SocialProps) => {
-	console.log(config.socialMedia);
 	return (
 		<Side isHome={isHome} orientation="left">
 			<ul

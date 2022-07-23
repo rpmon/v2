@@ -6,3 +6,5 @@ export { default as Nav } from './nav';
 export { default as Loader } from './loader';
 export { default as Side } from './side';
 export { default as Hero } from './sections/hero';
+export { default as About } from './sections/about';
+export { default as App } from './app';

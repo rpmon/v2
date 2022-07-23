@@ -71,7 +71,7 @@ const Nav = ({ isHome }: NavProps) => {
 				className="flex justify-between items-center fixed top-0 z-[11] py-0 px-[50px] w-full h-[100px] bg-white dark:bg-black filter-none pointer-events-auto select-auto transition-[var(--transition)] lg:py-[40px] md:py-[25px]"
 				style={{
 					height: '70px',
-					transform: isVisible ? 'translateY(0)' : 'translateY(-70px)',
+					transform: isVisible ? 'translateY(0)' : 'translateY(-90px)',
 				}}
 			>
 				<nav
