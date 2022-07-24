@@ -1,5 +1,7 @@
+const withMDX = require('@next/mdx');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+	pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
 	reactStrictMode: true,
 	async redirects() {
 		return [
@@ -12,4 +14,4 @@ const nextConfig = {
 	},
 };
 
-module.exports = nextConfig;
+module.exports = withMDX(nextConfig);

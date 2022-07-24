@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+
+const plugin = require('tailwindcss/plugin');
 module.exports = {
 	content: [
 		'./pages/**/*.{js,ts,jsx,tsx}',
@@ -62,6 +64,7 @@ module.exports = {
 				green: '#64ffda',
 				black: '#212121',
 				slate: '#323232',
+				'slate-light': '#3c3c3c',
 				aqua: '#0d7377',
 				cyan: '#14ffec',
 				yellow: '#ffc107',
@@ -69,5 +72,22 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [],
+	plugins: [
+		plugin(function ({ addUtilities }) {
+			addUtilities({
+				'.link': {
+					'text-decoration': 'none',
+					'text-decoration-skip-ink': 'auto',
+					position: 'relative',
+					cursor: 'pointer',
+					transition: 'var(--transition)',
+				},
+				'.flex-center': {
+					display: 'center',
+					'justify-content': 'center',
+					'align-items': 'center',
+				},
+			});
+		}),
+	],
 };

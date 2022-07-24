@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
-import { useCheckSSR } from '../../hooks';
-import profilePic from '../../public/profile.jpg';
-import { config } from '../../config';
+import { useCheckSSR } from '@/hooks';
+import profilePic from 'public/profile.png';
+import { config } from '@/config';
 import Link from 'next/link';
 const About = () => {
 	const revealContainer = useRef<HTMLElement>(null);
