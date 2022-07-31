@@ -228,6 +228,7 @@ const Featured = () => {
 		<>
 			<section id="projects">
 				<h2 className="numbered-heading" ref={revealTitle}>
+					{/* TODO: Add color to the text */}
 					Some Things I&apos;ve Built
 				</h2>
 				<ul className="project-grid list-none p-0 m-0">
