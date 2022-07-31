@@ -18,9 +18,16 @@ import {
 
 type IconProps = {
 	name: string;
+	width?: string;
+	height?: string;
 };
 
-const Icon = ({ name }: IconProps) => {
+export type IconType = {
+	width?: string;
+	height?: string;
+};
+
+const Icon = ({ name, width, height }: IconProps) => {
 	switch (name) {
 		case 'AppStore':
 			return <IconAppStore />;
@@ -29,13 +36,13 @@ const Icon = ({ name }: IconProps) => {
 		case 'Codepen':
 			return <IconCodepen />;
 		case 'External':
-			return <IconExternal />;
+			return <IconExternal width={width} height={height} />;
 		case 'Folder':
 			return <IconFolder />;
 		case 'Fork':
 			return <IconFork />;
 		case 'GitHub':
-			return <IconGitHub />;
+			return <IconGitHub width={width} height={height} />;
 		case 'Instagram':
 			return <IconInstagram />;
 		case 'Linkedin':

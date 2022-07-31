@@ -3,6 +3,7 @@ import { ScrollProvider } from 'context/scrollContext';
 import Layout from '@/components/layout';
 import { Hero, About } from '@/components';
 import Jobs from './sections/jobs';
+import Featured from './sections/featured';
 
 const App = () => {
 	return (
@@ -21,6 +22,7 @@ const App = () => {
 							<Hero />
 							<About />
 							<Jobs />
+							<Featured />
 						</main>
 					</Layout>
 				</HeaderProvider>

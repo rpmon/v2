@@ -6,7 +6,16 @@ type ContentAttributes = {
 	range: string;
 	url: string;
 };
+type FeaturedProject = {
+	title: string;
+	github: string;
+	cover: string;
+	external: string;
+	tech: string[];
+	cta: string;
+};
 
 declare module '*.mdx' {
 	const meta: ContentAttributes;
+	const featured: FeaturedProject;
 }

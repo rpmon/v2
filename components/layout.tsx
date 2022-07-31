@@ -36,8 +36,8 @@ const Layout = ({ children }: Props) => {
 			setTimeout(() => {
 				const el = document.getElementById(hash);
 				if (el) {
-					el.scrollIntoView();
-					el.focus();
+					// el.scrollIntoView();
+					// el.focus();
 				}
 			}, 0);
 		}

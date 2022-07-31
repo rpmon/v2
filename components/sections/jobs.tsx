@@ -1,8 +1,12 @@
 import { config, KEY_CODES } from '@/config';
 import { motion } from 'framer-motion';
 import { useCheckSSR } from '@/hooks';
-import Kansastek, { meta as KansastekAttributes } from 'content/kansastek.mdx';
-import Hiringtek, { meta as HiringtekAttributes } from 'content/hiringtek.mdx';
+import Kansastek, {
+	meta as KansastekAttributes,
+} from 'content/jobs/kansastek.mdx';
+import Hiringtek, {
+	meta as HiringtekAttributes,
+} from 'content/jobs/hiringtek.mdx';
 import { KeyboardEvent, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import styled from '@emotion/styled';
@@ -114,7 +118,7 @@ const Jobs = () => {
 		{ frontmatter: KansastekAttributes, Content: Kansastek },
 	];
 	const [activeTabId, setActiveTabId] = useState(0);
-	const [tabFocus, setTabFocus] = useState(0);
+	const [tabFocus, setTabFocus] = useState<number | null>(null);
 	const tabs = useRef<(HTMLElement | null)[]>([]);
 	const revealContainer = useRef<HTMLElement>(null);
 	const isSSR = useCheckSSR();
@@ -126,25 +130,19 @@ const Jobs = () => {
 			}
 		};
 		animate();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [isSSR]);
 
 	const focusTab = () => {
-		if (tabs.current[tabFocus]) {
-			tabs.current[tabFocus]?.focus();
-			return;
-		}
-		//If we're at the end, go to the start;
-		if (tabFocus >= tabs.current.length) {
-			setTabFocus(0);
-		}
-		//If we're at the start, go to the end;
-		if (tabFocus < 0) {
-			setTabFocus(tabs.current.length - 1);
+		if (tabFocus != null) {
+			if (tabs.current[tabFocus]) {
+				tabs.current[tabFocus]?.focus();
+				return;
+			}
 		}
 	};
 
 	//Only re-run the effect if tabFocus changes;
+
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	useEffect(() => focusTab(), [tabFocus]);
 
@@ -153,13 +151,23 @@ const Jobs = () => {
 		switch (e.key) {
 			case KEY_CODES.ARROW_UP: {
 				e.preventDefault();
-				setTabFocus(tabFocus - 1);
+				if (tabFocus === null) {
+					setTabFocus(0);
+				} else {
+					tabFocus > 0 && setTabFocus(tabFocus - 1);
+					tabFocus <= 0 && setTabFocus(tabs.current.length - 1);
+				}
 				break;
 			}
 
 			case KEY_CODES.ARROW_DOWN: {
 				e.preventDefault();
-				setTabFocus(tabFocus + 1);
+				if (tabFocus === null) {
+					setTabFocus(0);
+				} else {
+					tabFocus < tabs.current.length - 1 && setTabFocus(tabFocus + 1);
+					tabFocus >= tabs.current.length - 1 && setTabFocus(0);
+				}
 				break;
 			}
 
@@ -175,11 +183,7 @@ const Jobs = () => {
 					Where I&apos;ve worked
 				</h2>
 				<div className="inner flex sm:block sm-min:min-h-[340px]">
-					<StyledTabList
-						role="tablist"
-						aria-label="Job Tabs"
-						onKeyDown={(e) => onKeyDown(e)}
-					>
+					<StyledTabList role="tablist" onKeyDown={(e) => onKeyDown(e)}>
 						{jobsData &&
 							jobsData.map((job, i) => {
 								const { company } = job.frontmatter;
@@ -200,8 +204,6 @@ const Jobs = () => {
 										id={`tab-${i}`}
 										role="tab"
 										tabIndex={activeTabId === i ? 0 : -1}
-										aria-selected={activeTabId === i ? 'true' : 'false'}
-										aria-controls={`panel-${i}`}
 									>
 										<span className="text-blue-500 dark:text-green">
 											{company}
@@ -234,8 +236,6 @@ const Jobs = () => {
 											id={`panel-${i}`}
 											role="tabpanel"
 											tabIndex={activeTabId === i ? 0 : -1}
-											aria-labelledby={`tab-${i}`}
-											aria-hidden={activeTabId !== i}
 											hidden={activeTabId !== i}
 										>
 											<h3 className="text-blue-500 dark:text-green">
