@@ -1,10 +1,10 @@
 import { config } from '@/config';
-import FeaturedData from '@/content/featured';
 import styled from '@emotion/styled';
 import useCheckSSR from 'hooks/useCheckSSR';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
+import useSWR from 'swr';
 import Icon from '../icons/icon';
 
 const StyledProject = styled.li`
@@ -211,7 +211,10 @@ const StyledDescription = styled.div`
 	}
 `;
 
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
 const Featured = () => {
+	const { data, error } = useSWR<FeaturedProjects>('/api/featured', fetcher);
 	const revealTitle = useRef<HTMLHeadingElement>(null);
 	const revealProjects = useRef<[HTMLLIElement | null]>([null]);
 	const isSSR = useCheckSSR();
@@ -224,6 +227,8 @@ const Featured = () => {
 		};
 		animate();
 	}, [isSSR]);
+	if (error) return <div>Unable to fetch Featured Projects</div>;
+	if (!data) return <div>Loading...</div>;
 	return (
 		<>
 			<section id="projects">
@@ -232,9 +237,9 @@ const Featured = () => {
 					Some Things I&apos;ve Built
 				</h2>
 				<ul className="project-grid list-none p-0 m-0">
-					{FeaturedData &&
-						FeaturedData.map((project, index) => {
-							const { frontmatter, Content } = project;
+					{data &&
+						data.map((project, index) => {
+							const { frontmatter, content } = project;
 							const { external, title, tech, github, cover, cta } = frontmatter;
 
 							return (
@@ -269,9 +274,9 @@ const Featured = () => {
 													)}
 												</h3>
 												<StyledDescription className="project-description bg-white dark:bg-slate text-blue-400 dark:text-teal-600">
-													<Content />
+													<p>{content}</p>
 												</StyledDescription>
-												{tech.length && (
+												{tech && tech.length && (
 													<ul
 														className="project-tech-list flex flex-wrap relative z-[2] m-[25px_0_10px] p-0 list-none
 														md:m-[10px_0]

@@ -4,6 +4,7 @@ import Layout from '@/components/layout';
 import { Hero, About } from '@/components';
 import Jobs from './sections/jobs';
 import Featured from './sections/featured';
+import Projects from './sections/projects';
 
 const App = () => {
 	return (
@@ -23,6 +24,7 @@ const App = () => {
 							<About />
 							<Jobs />
 							<Featured />
+							<Projects />
 						</main>
 					</Layout>
 				</HeaderProvider>
