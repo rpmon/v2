@@ -1,17 +1,24 @@
 import type { NextPage } from 'next';
 import useDarkMode from 'use-dark-mode';
-import { App } from '@/components';
-
-const Home: NextPage = () => {
+import { Loader } from '@/components';
+import { useRouter } from 'next/router';
+const Index: NextPage = () => {
 	const darkMode = useDarkMode(true, {
 		classNameDark: 'dark',
 		classNameLight: 'light',
 	});
+	const router = useRouter();
 	return (
 		<>
-			<App />
+			{/* <App /> */}
+			<Loader
+				finishLoading={() => {
+					// Route to /home using next/router
+					router.push('/home');
+				}}
+			/>
 		</>
 	);
 };
 
-export default Home;
+export default Index;

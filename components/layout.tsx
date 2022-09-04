@@ -1,13 +1,12 @@
 import { useRouter } from 'next/router';
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useContext, useEffect, useState } from 'react';
 import { CustomHead, Nav, Loader, Social, Email, Footer } from './';
 type Props = {
 	children: ReactNode;
 };
 const Layout = ({ children }: Props) => {
 	const router = useRouter();
-	const isHome = router.pathname === '/';
-	const [isLoading, setIsLoading] = useState(isHome);
+	const isHome = router.pathname === '/home';
 	const [hash, setHash] = useState('');
 
 	// open all links in a new tab and add noopener and noreferrer
@@ -28,10 +27,6 @@ const Layout = ({ children }: Props) => {
 	}, [router.asPath]);
 
 	useEffect(() => {
-		if (isLoading) {
-			return;
-		}
-
 		if (hash) {
 			setTimeout(() => {
 				const el = document.getElementById(hash);
@@ -43,26 +38,22 @@ const Layout = ({ children }: Props) => {
 		}
 
 		handleExternalLinks();
-	}, [hash, isLoading]);
+	}, [hash]);
 
 	return (
 		<>
 			<CustomHead />
 			<div className="root bg-white dark:bg-black">
-				{isLoading && isHome ? (
-					<Loader finishLoading={() => setIsLoading(false)} />
-				) : (
-					<div>
-						<Nav isHome={isHome} />
-						<Social isHome={isHome} />
-						<Email isHome={isHome} />
+				<div>
+					<Nav isHome={isHome} />
+					<Social isHome={isHome} />
+					<Email isHome={isHome} />
 
-						<div id="content">
-							{children}
-							<Footer />
-						</div>
+					<div id="content">
+						{children}
+						<Footer />
 					</div>
-				)}
+				</div>
 			</div>
 		</>
 	);

@@ -146,7 +146,7 @@ const Projects = () => {
 				sr().reveal(revealTitle.current, config.srConfig());
 				sr().reveal(revealArchiveLink.current, config.srConfig());
 				revealProjects.current.forEach(
-					(ref, i) => ref && sr.reveal(ref, config.srConfig(i * 100))
+					(ref, i) => ref && sr().reveal(ref, config.srConfig(i * 100))
 				);
 			}
 		};

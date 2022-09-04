@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 type loaderProps = {
 	finishLoading: () => void;
 };
+
 const Loader = ({ finishLoading }: loaderProps) => {
 	useEffect(() => {
 		const afterTyped = setTimeout(() => {

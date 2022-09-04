@@ -24,19 +24,19 @@ export const config = {
 	navLinks: [
 		{
 			name: 'About',
-			url: '/#about',
+			url: '/home/#about',
 		},
 		{
 			name: 'Experience',
-			url: '/#jobs',
+			url: '/home/#jobs',
 		},
 		{
 			name: 'Work',
-			url: '/#projects',
+			url: '/home/#projects',
 		},
 		{
 			name: 'Contact',
-			url: '/#contact',
+			url: '/home/#contact',
 		},
 	],
 	srConfig: (delay = 200, viewFactor = 0.25) => ({

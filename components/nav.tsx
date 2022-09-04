@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { config } from '../config';
 import { useHeaderContext } from '../hooks';
 import IconLogo from './logo';
@@ -23,7 +23,7 @@ const Nav = ({ isHome }: NavProps) => {
 		classNameLight: 'light',
 	});
 
-	const darkModeBall = document.getElementById('darkmode-ball');
+	const darkModeBallRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		const mountTimeout = setTimeout(() => {
@@ -138,11 +138,13 @@ const Nav = ({ isHome }: NavProps) => {
 											onClick={() => {
 												darkMode.toggle();
 												!darkMode.value
-													? darkModeBall?.style.setProperty(
+													? darkModeBallRef.current?.style.setProperty(
 															'transform',
 															'translateX(20px)'
 													  )
-													: darkModeBall?.style.removeProperty('transform');
+													: darkModeBallRef.current?.style.removeProperty(
+															'transform'
+													  );
 											}}
 											type="checkbox"
 											className="checkbox opacity-0 absolute"
@@ -160,6 +162,7 @@ const Nav = ({ isHome }: NavProps) => {
 											</i>
 											<div
 												id="darkmode-ball"
+												ref={darkModeBallRef}
 												className="ball w-[18px] h-[18px] bg-white absolute top-[1px] left-[1px] rounded-[50%] transition-all"
 												style={
 													darkMode.value
