@@ -260,6 +260,11 @@ a:focus {
 	color: theme('colors.purple');
 }
 
+.dark a:hover,
+.dark a:focus {
+	color: theme('colors.purple');
+}
+
 hr {
 	background-color: theme('colors.sky');
 	height: 1px;

@@ -25,12 +25,10 @@ const StyledProjectsSection = styled.section`
 		}
 	}
 	.more-button {
-		border: 1px solid var(--purple);
 		text-decoration: none;
 		&:hover,
 		&:focus,
 		&:active {
-			background-color: var(--purple);
 			outline: none;
 		}
 		&:after {
@@ -169,13 +167,13 @@ const Projects = () => {
 		const { title, github, external, tech } = frontmatter;
 		return (
 			<>
-				<div className="project-inner bg-gray-300 dark:bg-zinc-800 ">
+				<div className="project-inner bg-gray-200 dark:bg-zinc-800 ">
 					<header>
 						<div className="project-top">
 							<div className="folder text-blue-700 dark:text-teal-700">
 								<Icon name="Folder" />
 							</div>
-							<div className="project-links flex items-center text-purple dark:text-green hover:text-purple transition-all">
+							<div className="project-links flex items-center text-blue-500 dark:text-green transition-all">
 								{github && (
 									<a
 										href={github}
@@ -210,7 +208,7 @@ const Projects = () => {
 					</header>
 					<footer>
 						{tech && (
-							<ul className="project-tech-list flex items-end flex-grow flex-wrap list-none p-0 m-[20px_0_0_0]">
+							<ul className="project-tech-list flex items-end flex-grow flex-wrap list-none p-0 m-[20px_0_0_0] text-blue-400 dark:text-teal-600">
 								{tech.map((tech, index) => (
 									<li key={index} className="font-mono text-xxs leading-[1.75]">
 										{tech}
@@ -229,9 +227,17 @@ const Projects = () => {
 	return (
 		<>
 			<StyledProjectsSection className="flex flex-col items-center">
-				<h2 ref={revealTitle}>Other Noteworthy Projects</h2>
+				<h2 ref={revealTitle} className="text-blue-500 dark:text-green m-0">
+					Other Noteworthy Projects
+				</h2>
 				<Link href="/archive">
-					<a className="font-mono text-sm" ref={revealArchiveLink}>
+					<a
+						className="font-mono text-sm text-blue-400 dark:text-teal-600 pt-1 pb-4
+						inline-block relative transition 
+						hover:after:w-full hover:after:text-purple focus:after:w-full focus:after:text-purple active:after:w-full active:after:text-purple
+						after:block after:w-0 after:h-[2px] after:relative after:bottom-[0.25em] after:transition-all after:opacity-50 after:bg-purple"
+						ref={revealArchiveLink}
+					>
 						view the archive
 					</a>
 				</Link>
@@ -255,7 +261,8 @@ const Projects = () => {
 					</motion.div>
 				</ul>
 				<button
-					className="more-button bg-transparent rounded-sm text-sm font-mono leading-[1] cursor-pointer transition-all py-[1.25rem] px-[1.75rem]"
+					className="more-button bg-transparent rounded-lg text-sm font-mono leading-[1] cursor-pointer transition-all py-[1.25rem] px-[1.75rem]
+					border-[1px] border-blue-300 dark:border-teal-300 text-blue-400 dark:text-teal-400 hover:bg-blue-200 dark:hover:bg-teal-800"
 					onClick={() => setShowMore(!showMore)}
 				>
 					Show {showMore ? 'Less' : 'More'}

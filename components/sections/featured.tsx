@@ -98,14 +98,14 @@ const StyledProject = styled.li`
 	}
 `;
 
+// &:hover,
+// &:focus {
+// 	box-shadow: 0 20px 30px -15px var(--slate);
+// }
+// Maybe play around with this later
 const StyledProjectImage = styled.div`
 	height: 100%;
-	box-shadow: 0 10px 30px -15px var(--slate);
 	transition: var(--transition);
-	&:hover,
-	&:focus {
-		box-shadow: 0 20px 30px -15px var(--slate);
-	}
 	grid-column: 6 / -1;
 	grid-row: 1 / -1;
 	position: relative;
@@ -119,6 +119,7 @@ const StyledProjectImage = styled.div`
 		width: 100%;
 		height: 100%;
 		border-radius: var(--border-radius);
+		transition: var(--transition);
 		vertical-align: middle;
 		&:hover,
 		&:focus {
@@ -329,7 +330,7 @@ const Featured = () => {
 												</div>
 											</div>
 										</div>
-										<StyledProjectImage className="project-image">
+										<StyledProjectImage className="project-image transition-all">
 											<Link
 												href={external ? external : github ? github : '#'}
 												className="bg-purple dark:bg-green before:bg-purple before:dark:bg-green"
