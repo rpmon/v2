@@ -13,6 +13,7 @@ const getFeaturedProjects = () => {
 		const fullPath = join(featuredDir, `${fileName}.md`);
 		const fileContents = fs.readFileSync(fullPath, 'utf8');
 		const { content, data } = matter(fileContents);
+		console.log(JSON.stringify(content));
 		return {
 			frontmatter: data as FeaturedProject,
 			content,

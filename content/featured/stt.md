@@ -1,8 +1,8 @@
 ---
 title: 'Live Speech Transcription'
 cover: '/stt.png'
-github: 'https://github.com/rohitp934/make-babel'
-external: 'https://www.npmjs.com/package/@hackermans/make-babel'
+github: 'https://github.com/rohitp934/cloud-speech'
+external: 'https://github.com/rohitp934/cloud-speech'
 tech:
   - VS Code
   - Github

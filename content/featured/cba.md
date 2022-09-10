@@ -1,14 +1,12 @@
 ---
-title: 'Quickstart NPM package for babel'
-cover: '/cba.png'
-github: 'https://github.com/rohitp934/make-babel'
-external: 'https://www.npmjs.com/package/@hackermans/make-babel'
+title: 'Anti-Cheat with Object Detection'
+cover: '/cheat.jpg'
+external: 'https://medium.com/swlh/guide-to-tensorflow-object-detection-tensorflow-2-e55ba3cdbc03'
 tech:
-  - VS Code
-  - Github
-  - NPM
-  - Node.js
-  - Babel
+  - Python
+  - Tensorflow
+  - Docker
+  - Flask
 ---
 
-A quickstart template for npm to get started with a babel app.
+Using Object Detection to detect cheating during interviews.

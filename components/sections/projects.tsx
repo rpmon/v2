@@ -53,7 +53,6 @@ const StyledProject = styled.li`
 		z-index: 1;
 	}
 	.project-inner {
-		box-shadow: 0 10px 30px -15px var(--slate);
 		transition: var(--transition);
 		&:hover,
 		&:focus {
@@ -202,7 +201,7 @@ const Projects = () => {
 								<a>{title}</a>
 							</Link>
 						</h3>
-						<div className="project-description text-blue-500 dark:text-teal-600 text-md">
+						<div className="project-description text-blue-500 dark:text-teal-600 text-sm">
 							{content}
 						</div>
 					</header>
@@ -242,23 +241,21 @@ const Projects = () => {
 					</a>
 				</Link>
 
-				<ul className="projects-grid grid gap-[15px] mt-[50px] relative">
-					<motion.div>
-						{projectsToShow &&
-							projectsToShow.map((project, index) => {
-								return (
-									<motion.div key={index}>
-										<StyledProject
-											className="transition-all relative "
-											key={index}
-											ref={(el) => (revealProjects.current[index] = el)}
-										>
-											{projectInner(project)}
-										</StyledProject>
-									</motion.div>
-								);
-							})}
-					</motion.div>
+				<ul className="projects-grid grid gap-[15px] mt-[50px] relative w-full">
+					{projectsToShow &&
+						projectsToShow.map((project, index) => {
+							return (
+								// <motion.div key={index} className="m-4">
+								<StyledProject
+									className="transition-all relative "
+									key={index}
+									ref={(el) => (revealProjects.current[index] = el)}
+								>
+									{projectInner(project)}
+								</StyledProject>
+								// </motion.div>
+							);
+						})}
 				</ul>
 				<button
 					className="more-button bg-transparent rounded-lg text-sm font-mono leading-[1] cursor-pointer transition-all py-[1.25rem] px-[1.75rem]

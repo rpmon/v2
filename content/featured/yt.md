@@ -2,6 +2,7 @@
 title: 'Youtube HTML5 Video Player'
 cover: '/yt.png'
 github: 'https://github.com/rohitp934/ngx-youtube-player'
+external: 'https://github.com/rohitp934/ngx-youtube-player'
 tech:
   - VS Code
   - Github

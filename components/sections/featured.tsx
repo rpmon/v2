@@ -255,7 +255,7 @@ const Featured = () => {
 									>
 										<div
 											className="project-content relative
-											md:flex md:flex-col md:justify-center md:h-full md:p-[40px_40px_40px] md:z-[5]
+											md:flex md:flex-col md:justify-center md:h-full md:p-[40px_40px_40px] z-[3] md:z-[5]
 											sm:p-[30px_25px_20px]
 										"
 										>
@@ -274,7 +274,7 @@ const Featured = () => {
 														</Link>
 													)}
 												</h3>
-												<StyledDescription className="project-description bg-white dark:bg-slate text-blue-400 dark:text-teal-600">
+												<StyledDescription className="project-description bg-white dark:bg-slate text-blue-400 dark:text-teal-600 text-left whitespace-pre-wrap">
 													<p>{content}</p>
 												</StyledDescription>
 												{tech && tech.length && (
@@ -330,7 +330,7 @@ const Featured = () => {
 												</div>
 											</div>
 										</div>
-										<StyledProjectImage className="project-image transition-all">
+										<StyledProjectImage className="project-image transition-all -z-30">
 											<Link
 												href={external ? external : github ? github : '#'}
 												className="bg-purple dark:bg-green before:bg-purple before:dark:bg-green"
