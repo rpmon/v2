@@ -1,0 +1,30 @@
+.social {
+	&:after {
+		content: '';
+		display: block;
+		width: 1px;
+		height: 90px;
+		margin: 0 auto;
+		background-color: var(--black);
+	}
+	li {
+		&:last-of-type {
+			margin-bottom: 20px;
+		}
+		a {
+			padding: 10px;
+			&:hover,
+			&:focus {
+				svg {
+					transform: translateY(-3px);
+					color: var(--purple);
+				}
+			}
+			svg {
+				transition: var(--transition);
+				width: 20px;
+				height: 20px;
+			}
+		}
+	}
+}
