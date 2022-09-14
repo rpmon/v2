@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
-import { ReactNode, useContext, useEffect, useState } from 'react';
-import { CustomHead, Nav, Loader, Social, Email, Footer } from './';
+import { ReactNode, useEffect, useState } from 'react';
+import { CustomHead, Nav, Social, Email } from './';
 type Props = {
 	children: ReactNode;
 };
@@ -51,7 +51,7 @@ const Layout = ({ children }: Props) => {
 
 					<div id="content">
 						{children}
-						<Footer />
+						{/* <Footer /> */}
 					</div>
 				</div>
 			</div>

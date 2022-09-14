@@ -6,7 +6,7 @@ class MyDocument extends Document {
 		return (
 			<Html>
 				<Head />
-				<body>
+				<body id="app">
 					<Script src="noflash.js" strategy="afterInteractive" />
 					<Main />
 					<NextScript />

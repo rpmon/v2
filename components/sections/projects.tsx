@@ -1,10 +1,9 @@
 import { config } from '@/config';
 import styled from '@emotion/styled';
-import { motion } from 'framer-motion';
 import useCheckSSR from 'hooks/useCheckSSR';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import useSWR, { Fetcher } from 'swr';
+import useSWR from 'swr';
 import Icon from '../icons/icon';
 const StyledProjectsSection = styled.section`
 	h2 {
