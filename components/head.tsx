@@ -1,6 +1,6 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
-import { config } from "../config";
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { config } from '../config';
 
 const CustomHead = () => {
 	const { pathname } = useRouter();
@@ -21,6 +21,7 @@ const CustomHead = () => {
 	return (
 		<>
 			<Head>
+				<title>{defaultTitle}</title>
 				<meta name="description" content={seo.description} />
 				<meta name="image" content={seo.image} />
 				<meta property="og:title" content={seo.title} />
