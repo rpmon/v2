@@ -149,7 +149,7 @@ const Menu = () => {
 
 							<Link
 								className="resume-link"
-								href="/resume.pdf"
+								href={config.resume}
 								target="_blank"
 								rel="noopener noreferrer"
 							>

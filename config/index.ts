@@ -6,6 +6,8 @@ export const config = {
 	defaultImage: '/og.png',
 	twitterUsername: '@rohitp934',
 	email: 'rohitp934@gmail.com',
+	resume:
+		'https://drive.google.com/file/d/1Ij8-0q71ucLVpN0mDCf85gKoM199k5jh/view?usp=sharing',
 	loaderDelay: 2000,
 	socialMedia: [
 		{
