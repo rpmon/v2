@@ -2,10 +2,9 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { config } from '../config';
-import { useHeaderContext } from '../hooks';
+import { useDarkMode, useHeaderContext } from '../hooks';
 import IconLogo from './logo';
 import Menu from './menu';
-import useDarkMode from 'use-dark-mode';
 import IconMoon from './icons/moon';
 import IconSun from './icons/sun';
 
@@ -18,10 +17,7 @@ const Nav = ({ isHome }: NavProps) => {
 
 	const { isVisible } = useHeaderContext();
 
-	const darkMode = useDarkMode(true, {
-		classNameDark: 'dark',
-		classNameLight: 'light',
-	});
+	const [darkMode, setDarkMode] = useDarkMode();
 
 	const darkModeBallRef = useRef<HTMLDivElement>(null);
 
@@ -136,8 +132,8 @@ const Nav = ({ isHome }: NavProps) => {
 									<div className="md:hidden">
 										<input
 											onClick={() => {
-												darkMode.toggle();
-												!darkMode.value
+												setDarkMode(!darkMode);
+												!darkMode
 													? darkModeBallRef.current?.style.setProperty(
 															'transform',
 															'translateX(20px)'
@@ -165,9 +161,7 @@ const Nav = ({ isHome }: NavProps) => {
 												ref={darkModeBallRef}
 												className="ball w-[18px] h-[18px] bg-white absolute top-[1px] left-[1px] rounded-[50%] transition-all"
 												style={
-													darkMode.value
-														? { transform: 'translateX(20px)' }
-														: {}
+													darkMode ? { transform: 'translateX(20px)' } : {}
 												}
 											></div>
 										</label>

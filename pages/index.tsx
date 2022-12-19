@@ -1,12 +1,10 @@
 import type { NextPage } from 'next';
-import useDarkMode from 'use-dark-mode';
 import { CustomHead, Loader } from '@/components';
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { useDarkMode } from '@/hooks';
 const Index: NextPage = () => {
-	const darkMode = useDarkMode(true, {
-		classNameDark: 'dark',
-		classNameLight: 'light',
-	});
+	const [darkMode, setDarkMode] = useDarkMode();
 	const router = useRouter();
 	return (
 		<>
