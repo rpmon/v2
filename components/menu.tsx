@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { MutableRefObject, useEffect, useRef, useState } from 'react';
-import useDarkMode from 'use-dark-mode';
 import { config } from '../config';
+import { useDarkMode } from 'hooks';
 import { useOnClickOutside } from '../hooks';
 import IconMoon from './icons/moon';
 import IconSun from './icons/sun';
@@ -9,10 +9,7 @@ import styles from './styles/menu.module.scss';
 
 const Menu = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
-	const darkMode = useDarkMode(false, {
-		classNameDark: 'dark',
-		classNameLight: 'light',
-	});
+	const [darkMode, setDarkMode] = useDarkMode();
 	const darkModeBall = useRef<HTMLDivElement>(null);
 
 	const toggleMenu = () => setMenuOpen(() => !menuOpen);
@@ -161,8 +158,8 @@ const Menu = () => {
 							<div className="mt-10">
 								<input
 									onClick={() => {
-										darkMode.toggle();
-										!darkMode.value
+										setDarkMode(!darkMode);
+										!darkMode
 											? darkModeBall.current?.style.setProperty(
 													'transform',
 													'translateX(20px)'
@@ -187,9 +184,7 @@ const Menu = () => {
 										id="darkmode-ball"
 										ref={darkModeBall}
 										className="ball w-[18px] h-[18px] bg-white absolute top-[1px] left-[1px] rounded-[50%] transition-all"
-										style={
-											darkMode.value ? { transform: 'translateX(20px)' } : {}
-										}
+										style={darkMode ? { transform: 'translateX(20px)' } : {}}
 									></div>
 								</label>
 							</div>
