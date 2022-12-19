@@ -12,7 +12,7 @@ export const config = {
 	socialMedia: [
 		{
 			name: 'GitHub',
-			url: 'https://github.com/rohitp934',
+			url: 'https://github.com/rpmon',
 		},
 		{
 			name: 'Twitter',
