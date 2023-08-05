@@ -27,7 +27,7 @@ const Hero = () => {
     <>
       <p className="m-[20px_0_0] max-w-[540px] text-blue-300 dark:text-teal-600">
         I’m a software developer who designs and develops user-centric products
-        on the Web. Currently pursuing a Master's in CS at NYU 💜
+        on the Web. Currently pursuing a Master’ms in CS at NYU 💜
       </p>
     </>
   );
