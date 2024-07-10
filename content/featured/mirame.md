@@ -1,8 +1,8 @@
 ---
 title: "Mirame - An interpreter written in Go & Rust"
 cover: "/mirame.jpg"
-external: "https://github.com/rohitp934/mirame"
-github: "https://github.com/rohitp934/mira"
+external: "https://github.com/seatedro/mirame"
+github: "https://github.com/seatedro/mira"
 tech:
   - Rust
   - Go

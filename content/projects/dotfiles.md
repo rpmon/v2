@@ -1,7 +1,7 @@
 ---
 date: "2023-10-16"
 title: "Dotfiles"
-external: "https://github.com/rohitp934/dotfiles"
+external: "https://github.com/seatedro/dotfiles"
 tech:
   - Lua
 showInProjects: true

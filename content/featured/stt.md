@@ -1,8 +1,8 @@
 ---
-title: 'Live Speech Transcription'
-cover: '/stt.png'
-github: 'https://github.com/rohitp934/cloud-speech'
-external: 'https://github.com/rohitp934/cloud-speech'
+title: "Live Speech Transcription"
+cover: "/stt.png"
+github: "https://github.com/seatedro/cloud-speech"
+external: "https://github.com/seatedro/cloud-speech"
 tech:
   - VS Code
   - Github

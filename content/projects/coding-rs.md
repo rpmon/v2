@@ -2,7 +2,7 @@
 date: "2023-02-04"
 title: "An online coding judge written in Rust"
 external: "https://actix.rs"
-github: "https://github.com/rohitp934/coding.rs"
+github: "https://github.com/seatedro/coding.rs"
 tech:
   - Rust
   - Serde

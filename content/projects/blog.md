@@ -2,7 +2,7 @@
 date: "2023-06-23"
 title: "Personal blog"
 external: "https://blog.rohitprakash.dev"
-github: "https://github.com/rohitp934/blog"
+github: "https://github.com/seatedro/blog"
 tech:
   - Vue
   - Nuxt 3

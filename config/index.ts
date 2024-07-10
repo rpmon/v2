@@ -4,18 +4,18 @@ export const config = {
     "Rohit Prakash is a software engineer who specializes in building (and occasionally designing) exceptional digital experiences.",
   defaultUrl: "https://rohitprakash.dev",
   defaultImage: "/og.png",
-  twitterUsername: "@rohitp934",
+  twitterUsername: "@seatedro",
   email: "rohitp934@gmail.com",
   resume: "https://cv.rohitprakash.dev",
   loaderDelay: 2000,
   socialMedia: [
     {
       name: "GitHub",
-      url: "https://github.com/rohitp934",
+      url: "https://github.com/seatedro",
     },
     {
       name: "Twitter",
-      url: "https://twitter.com/rohitp934",
+      url: "https://twitter.com/seatedro",
     },
     {
       name: "Linkedin",
